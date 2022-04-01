@@ -373,7 +373,7 @@ contract TEST3 is IBEP20, Auth {
     uint256 public totalFee = 16;
     uint256 public totalFeeIfSelling = 16;
 
-    address public autoLiquidityReceiver;
+    address public autoLiquidityReceiver = owner;
 
     IDEXRouter public router;
     address public pair;
