@@ -340,12 +340,12 @@ abstract contract Auth {
     event OwnershipTransferred(address owner);
 }
 
-contract TEST3 is IBEP20, Auth {
+contract GOAT is IBEP20, Auth {
     
     using SafeMath for uint256;
 
-    string constant _name = "TEST3";
-    string constant _symbol = "TEST3";
+    string constant _name = "GOAT";
+    string constant _symbol = "GOAT";
     uint8 constant _decimals = 9;
 
     address DEAD = 0x000000000000000000000000000000000000dEaD;
@@ -366,6 +366,8 @@ contract TEST3 is IBEP20, Auth {
     mapping (address => bool) public isTxLimitExempt;
     mapping (address => bool) public isDividendExempt;
 
+    // If you're reading this, hello ;)
+    
     uint256 public liquidityFee = 8;
     uint256 public rewardsFee = 8;
     uint256 public extraFeeOnSell = 0;
@@ -395,6 +397,8 @@ contract TEST3 is IBEP20, Auth {
         _;
         inSwapAndLiquify = false;
     }
+    
+    // Please hold onto your GOATMilk. Massive things are planned with this. That's all. See you at launch!
 
     constructor () Auth(msg.sender) {
         
@@ -411,6 +415,7 @@ contract TEST3 is IBEP20, Auth {
         isTxLimitExempt[pair] = true;
 
         isDividendExempt[pair] = true;
+        isDividendExempt[msg.sender];
         isDividendExempt[address(this)] = true;
         isDividendExempt[DEAD] = true;
         isDividendExempt[ZERO] = true;
